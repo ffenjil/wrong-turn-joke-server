@@ -2,7 +2,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import PrimaryButton from "./PrimaryButton";
-import { Home, Flag, ShieldAlert, Bug, Cpu, Shield } from "lucide-react";
+import { Home, Flag, ShieldAlert, Bug, Cpu, Shield, Eye } from "lucide-react";
 
 interface WrongTurnMessageProps {
   className?: string;
@@ -52,6 +52,18 @@ const WrongTurnMessage: React.FC<WrongTurnMessageProps> = ({ className }) => {
           <div className="mt-4 text-xs text-muted-foreground border-t pt-3">
             HTTP requests to IP addresses are being monitored. This is a security measure.
           </div>
+        </div>
+        
+        {/* New Jil's Watching You message */}
+        <div className="w-full max-w-md mx-auto px-6 py-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 shadow-sm animate-pulse-slow animate-slide-down" style={{ animationDelay: "350ms" }}>
+          <div className="flex items-center justify-center gap-3">
+            <Eye className="h-5 w-5 text-amber-500 animate-pulse" />
+            <p className="text-base font-bold text-amber-500">Jil's Watching You!</p>
+            <Eye className="h-5 w-5 text-amber-500 animate-pulse" />
+          </div>
+          <p className="mt-2 text-sm text-amber-600/80 italic">
+            Every keystroke, every click... Jil sees all. Even your incognito tabs aren't safe! 👀
+          </p>
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-slide-down" style={{ animationDelay: "400ms" }}>
