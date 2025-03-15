@@ -2,6 +2,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import PrimaryButton from "./PrimaryButton";
+import { Home, Flag, ShieldAlert, Bug, Cpu, Shield } from "lucide-react";
 
 interface WrongTurnMessageProps {
   className?: string;
@@ -13,8 +14,7 @@ const WrongTurnMessage: React.FC<WrongTurnMessageProps> = ({ className }) => {
   };
 
   const handleReportIssue = () => {
-    // You can implement report issue functionality here if needed
-    console.log("Report issue clicked");
+    window.location.href = "mailto:report@ffenjil.site?subject=Security%20Report%20-%20IP%20Access%20Attempt&body=Hello%20security%20team,%0A%0AI%20would%20like%20to%20report%20a%20potential%20security%20issue%20with%20your%20website.%0A%0ADetails:%0A%0A";
   };
 
   return (
@@ -23,58 +23,43 @@ const WrongTurnMessage: React.FC<WrongTurnMessageProps> = ({ className }) => {
       className
     )}>
       <div className="mb-8 animate-float">
-        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path 
-            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" 
-            stroke="currentColor" 
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="animate-pulse-slow"
-          />
-          <path 
-            d="M8 15C8.5 16 9.79086 17 12 17C14.2091 17 15.5 16 16 15" 
-            stroke="currentColor" 
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path 
-            d="M9 10C9 10.5523 8.55228 11 8 11C7.44772 11 7 10.5523 7 10C7 9.44772 7.44772 9 8 9C8.55228 9 9 9.44772 9 10Z" 
-            fill="currentColor"
-          />
-          <path 
-            d="M17 10C17 10.5523 16.5523 11 16 11C15.4477 11 15 10.5523 15 10C15 9.44772 15.4477 9 16 9C16.5523 9 17 9.44772 17 10Z" 
-            fill="currentColor"
-          />
-        </svg>
+        <div className="relative">
+          <ShieldAlert size={120} className="text-primary/80" />
+          <div className="absolute -top-4 -right-4 bg-destructive text-destructive-foreground text-xs font-bold rounded-full p-2 animate-pulse">
+            <Shield size={20} />
+          </div>
+        </div>
       </div>
       
       <div className="w-full space-y-6">
         <div className="space-y-2">
           <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium animate-slide-down">
-            404 • Wrong Turn
+            <Cpu className="inline-block mr-1 h-3 w-3" /> IP Access Blocked
           </div>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl animate-slide-down" style={{ animationDelay: "100ms" }}>
-            Oops! You Took a Wrong Turn
+            Nice Try, Hackerman! 👨‍💻
           </h1>
           <p className="mt-6 text-lg text-muted-foreground animate-slide-down" style={{ animationDelay: "200ms" }}>
-            Looks like you tried accessing this site using its IP address. But this isn't the way, my friend!
+            Accessing by IP address? That's like trying to break into Fort Knox through the air ducts. 
+            Not on our watch! Please use the proper domain name instead.
           </p>
         </div>
         
         <div className="w-full max-w-md mx-auto px-8 py-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 shadow-sm animate-slide-down" style={{ animationDelay: "300ms" }}>
-          <p className="text-base font-medium">Meanwhile, here's a joke for you:</p>
-          <p className="mt-4 text-muted-foreground"><strong>Why do programmers prefer dark mode?</strong></p>
-          <p className="mt-2 italic">Because light attracts bugs!</p>
+          <p className="text-base font-medium">Security Alert:</p>
+          <p className="mt-4 text-muted-foreground"><strong>What happens when a hacker tries to attack a website?</strong></p>
+          <p className="mt-2 italic">They get a <span className="font-bold text-destructive">byte</span> of their own medicine! <Bug className="inline-block h-4 w-4" /></p>
+          <div className="mt-4 text-xs text-muted-foreground border-t pt-3">
+            HTTP requests to IP addresses are being monitored. This is a security measure.
+          </div>
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-slide-down" style={{ animationDelay: "400ms" }}>
           <PrimaryButton onClick={handleGoToHomepage}>
-            Go to Homepage
+            <Home className="mr-1" /> Go to Homepage
           </PrimaryButton>
           <PrimaryButton variant="outline" onClick={handleReportIssue}>
-            Report Issue
+            <Flag className="mr-1" /> Report Issue
           </PrimaryButton>
         </div>
       </div>
