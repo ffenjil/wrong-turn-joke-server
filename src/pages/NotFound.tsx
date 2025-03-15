@@ -14,6 +14,10 @@ const NotFound = () => {
     );
   }, [location.pathname]);
 
+  const handleReturnHome = () => {
+    window.location.href = "https://ffenjil.site";
+  };
+
   return (
     <WrongTurnLayout>
       <div className="relative flex w-full max-w-xl flex-col items-center text-center">
@@ -59,7 +63,7 @@ const NotFound = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-slide-down" style={{ animationDelay: "300ms" }}>
-            <PrimaryButton onClick={() => window.location.href = "/"}>
+            <PrimaryButton onClick={handleReturnHome}>
               Return to Home
             </PrimaryButton>
           </div>

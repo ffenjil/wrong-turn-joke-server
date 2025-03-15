@@ -8,6 +8,15 @@ interface WrongTurnMessageProps {
 }
 
 const WrongTurnMessage: React.FC<WrongTurnMessageProps> = ({ className }) => {
+  const handleGoToHomepage = () => {
+    window.location.href = "https://ffenjil.site";
+  };
+
+  const handleReportIssue = () => {
+    // You can implement report issue functionality here if needed
+    console.log("Report issue clicked");
+  };
+
   return (
     <div className={cn(
       "relative flex w-full max-w-xl flex-col items-center text-center",
@@ -61,10 +70,10 @@ const WrongTurnMessage: React.FC<WrongTurnMessageProps> = ({ className }) => {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4 animate-slide-down" style={{ animationDelay: "400ms" }}>
-          <PrimaryButton>
+          <PrimaryButton onClick={handleGoToHomepage}>
             Go to Homepage
           </PrimaryButton>
-          <PrimaryButton variant="outline">
+          <PrimaryButton variant="outline" onClick={handleReportIssue}>
             Report Issue
           </PrimaryButton>
         </div>
